@@ -2,13 +2,13 @@
 
 Hi — I'm Matt. I made this for friends, family, and anyone curious about setting up their own personal AI workspace on their computer. If you've been using ChatGPT or Claude in a browser tab and want something more durable — a single place where AI tools actually understand your work and build on it over time — this guide will walk you through it.
 
-You don't need to be technical. By the end you'll have a folder on your computer that AI tools can read and write to, a couple of starter files, and one real first win.
+You don't need to be technical. By the end you'll have a folder on your computer that AI tools can read and write to, a simple labeled folder layout, a couple of starter files, and one real first win.
 
 ---
 
 ## How to use this
 
-**The fastest path** — open [Claude Code](https://claude.com/claude-code), [claude.ai](https://claude.ai), or ChatGPT, paste this URL:
+**The fastest path** — open [Claude Code](https://claude.com/claude-code) in your terminal and paste this URL (the interview below will help if that's new to you). No Claude Code yet? Start the interview in [claude.ai](https://claude.ai) or ChatGPT once, then move to Claude Code when your folder is ready:
 
 ```
 https://github.com/matthewdricci/personal-ai-workspace
@@ -42,22 +42,22 @@ Please do all of the following:
 5. Ask my name and the kind of work I do.
 6. Ask whether I'm on Mac or Windows.
 7. Recommend that the workspace live in a regular local folder that is ALSO a git repository. Explain in plain English: git gives me version history and undo without needing GitHub or any account — it's just a safety net on my own machine. Briefly contrast with iCloud/Google Drive/OneDrive sync (sync conflicts, no real version history, AI tools sometimes choke on synced folders). If I really want cloud sync, that's fine, but lead with local + git.
-8. Ask whether I'm comfortable in a terminal. If yes, recommend Claude Code (in the terminal) as the primary tool, optionally paired with Cursor or VS Code as the editor. If no, recommend claude.ai (Cowork) or ChatGPT as a gentler starting point, and note that I can graduate to Claude Code later — the same workspace folder will work with any of them.
-9. Help me create the workspace folder using plain-English instructions for my OS (Finder on Mac, File Explorer on Windows). Suggest a folder name based on my name, but let me choose. Then help me run `git init` inside it (or, if I'm not comfortable in the terminal, defer this step until later).
+8. Ask whether I'm comfortable in a terminal — mainly to calibrate how much hand-holding I need, not which tool to pick. Either way, recommend **Claude Code in the terminal** as the primary tool (optionally paired with Cursor or VS Code as the editor). If I'm nervous: normalize that most people start there, explain it's mostly copy-paste commands (not memorizing syntax), and offer to walk me through opening Terminal and my first few commands slowly. Don't steer me toward claude.ai or ChatGPT as the main path — browser tools are fine for quick one-offs later, but the terminal habit is worth building from day one. The same workspace folder works with all of them once I'm in.
+9. Help me create the workspace folder using plain-English instructions for my OS (Finder on Mac, File Explorer on Windows). Suggest a folder name based on my name, but let me choose. Then help me run `git init` inside it — give me exact copy-paste commands for my OS and stay with me step by step even if I'm new to the terminal.
 10. Briefly remind me not to paste secrets, passwords, or sensitive personal/health information into AI tools, and not to commit any of that to a repo if I ever push it to GitHub.
 11. Before helping me choose my first workflow, check whether you already have any useful context about me from this chat — memory, prior conversations, saved projects. Use that context carefully if it's actually available. Be explicit about what you do and do not have access to. Do not pretend.
 12. Ask me about tasks I do repeatedly, what feels annoying, and what one first workflow I'd like help with.
 13. Help me pick one safe first task — not anything sensitive.
-14. Suggest a very lightweight starting structure. Do NOT overwhelm me with empty folders.
-15. Once you have enough information, summarize my decisions: solo-vs-shared, OS, folder name, kind of work, primary tool, first workflow.
+14. Introduce a default folder layout based on PARA (plus inbox): `inbox/`, `projects/`, `areas/`, `resources/`, `archive/`. Explain each in one plain sentence with an example tied to my work — not a lecture on productivity theory. Ask: "Does this match how you think, or do you already use something else?" If I have another system, adapt the names. If I'm overwhelmed, say we'll start with just `inbox/` and `projects/` and add the rest later.
+15. Once you have enough information, summarize my decisions: solo-vs-shared, OS, folder name, kind of work, primary tool, first workflow, and folder layout (full PARA or simplified).
 16. Then generate a clean handoff prompt I can paste into whichever tool I chose (Claude Code, Cowork, ChatGPT, Cursor) once I'm pointed at my new workspace folder.
 17. That handoff prompt should carry the context from this interview and instruct the tool to create:
-    - the starter folder structure
-    - a README.md explaining the workspace to future me and to AI
-    - a Journey.md tracking what I've set up and learned
-    - one first project file for my chosen workflow
+    - the starter folder structure: `inbox/`, `projects/`, `areas/`, `resources/`, `archive/` (or `inbox/` + `projects/` only if we simplified). Each folder gets a tiny `README.md` with one sentence explaining what goes there, using examples from my work so the folders don't feel mysteriously empty.
+    - a root `README.md` explaining the workspace to future me and to AI, including a short "where things go" section for the folders
+    - a `Journey.md` tracking what I've set up and learned
+    - one first project file for my chosen workflow, placed in `projects/` (not loose in the root)
 18. Tell me clearly when it's time to stop this chat, open my chosen tool inside the workspace folder, and paste the handoff prompt.
-19. If I seem overwhelmed, simplify. One step at a time.
+19. If I seem overwhelmed, simplify. One step at a time. For folders, collapse to `inbox/` + `projects/` only and note in `Journey.md` that I can add areas/resources/archive later.
 20. Remind me I can use voice/microphone input if I prefer talking.
 21. Keep the tone friendly, calm, and encouraging. Do not assume I know technical vocabulary.
 
@@ -72,9 +72,10 @@ Throughout the conversation:
 At the end I should have:
 - a workspace folder
 - (ideally) a git repo initialized inside it
-- a README.md
+- a PARA-style folder layout (inbox, projects, areas, resources, archive — or inbox + projects if simplified)
+- a README.md (root) plus a one-line README in each folder
 - a Journey.md
-- one starter project
+- one starter project in projects/
 - one clear first win
 
 Begin by explaining the concept simply, then interview me step by step.
@@ -86,10 +87,31 @@ Begin by explaining the concept simply, then interview me step by step.
 
 - One folder on your computer that's your personal AI workspace.
 - (Recommended) That folder is a git repo, so you have version history and undo built in.
+- Five labeled folders — a simple PARA layout so you and AI always know where things go (see below).
 - A `README.md` explaining the workspace to your future self and to AI.
 - A `Journey.md` tracking what you've set up and learned.
-- One starter project for a real task you do.
+- One starter project in `projects/` for a real task you do.
 - One first win in the next 30–60 minutes.
+
+---
+
+## How your folders work
+
+Most workspaces start with five top-level folders. Think of them as labeled slots, not homework — they can be mostly empty on day one.
+
+| Folder | What goes here |
+|--------|----------------|
+| `inbox/` | Quick captures and unsorted stuff — you or your agent drop things here first |
+| `projects/` | Active work with a finish line (your first workflow file lives here) |
+| `areas/` | Ongoing responsibilities with no end date — health, finances, a role you hold |
+| `resources/` | Reference material you might reuse — templates, research, how-tos |
+| `archive/` | Done or paused — out of the way but still findable |
+
+Each folder gets a tiny `README.md` with one sentence and an example from *your* work, so nothing feels like a mysterious empty directory.
+
+This layout is based on [PARA](https://fortelabs.com/blog/para/) (Projects, Areas, Resources, Archive). `inbox/` isn't part of classic PARA, but it's the bucket that makes AI workspaces practical — agents need a safe default before anyone decides "project vs area."
+
+If PARA doesn't match how you think, rename or rearrange during setup. If five folders feels like too much, start with just `inbox/` and `projects/` and add the rest when you're ready.
 
 ---
 
@@ -179,15 +201,15 @@ You *can* set up a shared workspace on a team drive, but it's a much bigger lift
 
 ### Claude Code (recommended)
 
-[Claude Code](https://claude.com/claude-code) runs in your terminal. If you're a product manager or anyone reasonably comfortable opening a Terminal window: this is the best option. You get full control, your workspace folder is the source of truth, you can install custom slash commands (more on that below), and you can wire up automations.
+[Claude Code](https://claude.com/claude-code) runs in your terminal. **Start here** — even if the terminal feels unfamiliar. You don't need to be a developer; you mostly copy-paste commands and let the AI do the rest. You get full control, your workspace folder is the source of truth, you can install custom slash commands (more on that below), and you can wire up automations.
 
 Pair it with **Cursor** or **VS Code** if you want a familiar editor open next to the terminal — Claude Code can read what's open in your editor, and you can read what Claude is doing. They work very well together.
 
 The habit to build: **always open your terminal session inside your workspace folder.** That's your default starting position. `cd` into the folder, start Claude Code, get to work. Don't run it from anywhere else.
 
-### claude.ai / ChatGPT (gentler on-ramp)
+### claude.ai / ChatGPT (occasional supplement)
 
-If a terminal feels like too much right now, [claude.ai](https://claude.ai) (with Cowork) or ChatGPT are great starting points. They're more limited than Claude Code — fewer integrations, less control over files, no slash commands — but they're easier to learn. You can graduate to Claude Code whenever you're ready, and the same workspace folder will work.
+[claude.ai](https://claude.ai) (with Cowork) or ChatGPT can read files in a folder too, but they're more limited than Claude Code — fewer integrations, less control, no slash commands. Fine for a quick question on your phone or when you're away from your machine; not the best place to build your daily workspace habit. The same folder still works if you use them sometimes.
 
 ### One workspace, many tools
 
